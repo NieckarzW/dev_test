@@ -8,7 +8,7 @@ public class InputIntegers {
     private LinkedList<Integer> integers;
     private LinkedList<Integer> intSorted;
     private Scanner sc = new Scanner(System.in);
-    private int choice;
+    private String choice;
 
     public InputIntegers sortSetIntigers() {
         Set<Integer> integerSet = new HashSet<>(integers);
@@ -40,22 +40,20 @@ public class InputIntegers {
         return integerLinkedList;
     }
 
-    public int reader() {
-        System.out.println("Podaj liczbę: ");
-        choice = sc.nextInt();
+    public String reader() {
+        choice = sc.nextLine();
         return choice;
     }
 
     public LinkedList<String> task2() {
         LinkedList<String> strings = new LinkedList<>();
         LinkedList<Integer> integerLinkedList = getIntegersSorted();
+
         for (int i = 0; i < integerLinkedList.size() - 1; i++) {
             for (int z = i + 1; z < integerLinkedList.size(); z++) {
-                if ((integerLinkedList.get(i) + integerLinkedList.get(z) == 13))
+                if (integerLinkedList.get(i) + integerLinkedList.get(z) == 13)
                     if (integerLinkedList.get(i) < integerLinkedList.get(z))
                         strings.add(integerLinkedList.get(i) + " " + integerLinkedList.get(z));
-                    else
-                        strings.add(integerLinkedList.get(z) + " " + integerLinkedList.get(i));
             }
         }
         return strings;
